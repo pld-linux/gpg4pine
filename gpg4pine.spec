@@ -7,6 +7,7 @@ Release:	1
 License:	Free (see README)
 Group:		Applications/File
 Source0:	%{name}-%{version}.tar.gz
+# Source0-md5:	565f0ee115275419eb40a7fa8e791789
 Patch0:		%{name}-rpm.patch
 URL:		http://azzie.robotics.net/
 Requires:	fileutils
