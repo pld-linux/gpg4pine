@@ -6,8 +6,6 @@ Version:	4.2
 Release:	1
 License:	Free but see README
 Group:		Applications/File
-Group(de):	Applikationen/Datei
-Group(pl):	Aplikacje/Pliki
 Source0:	%{name}-%{version}.tar.gz
 Patch0:		%{name}-rpm.patch
 URL:		http://azzie.robotics.net/
