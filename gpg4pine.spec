@@ -51,8 +51,6 @@ install gpg4pinerc $RPM_BUILD_ROOT%{_sysconfdir}/gpg4pine.defaults
 cp -a language $RPM_BUILD_ROOT%{_datadir}/gpg4pine/language
 touch $RPM_BUILD_ROOT%{_sysconfdir}/gpg4pine.override
 
-gzip -9nf README AUTHORS NEWS LICENSE aliases pgp-patches/*
-
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 
@@ -61,6 +59,6 @@ rm -rf ${RPM_BUILD_ROOT}
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/gpg4pine
 %config %{_sysconfdir}/*
-%doc *.gz
+%doc README AUTHORS NEWS LICENSE aliases
 %doc pgp-patches
 %{_mandir}/*/*
