@@ -46,7 +46,7 @@ install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},%{_datadir}/gpg4pine,%{_man
 
 %{__make} install BIN_DIR=$RPM_BUILD_ROOT%{_bindir} \
 	MAN_DIR=$RPM_BUILD_ROOT%{_mandir}
-	
+
 install gpg4pinerc $RPM_BUILD_ROOT%{_sysconfdir}/gpg4pine.defaults
 cp -a language $RPM_BUILD_ROOT%{_datadir}/gpg4pine/language
 touch $RPM_BUILD_ROOT%{_sysconfdir}/gpg4pine.override
