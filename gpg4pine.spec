@@ -4,7 +4,7 @@ Summary(pl):	Interfejs pine--gpg/pgp
 Name:		gpg4pine
 Version:	4.2
 Release:	1
-License:	Free but see README
+License:	Free (see README)
 Group:		Applications/File
 Source0:	%{name}-%{version}.tar.gz
 Patch0:		%{name}-rpm.patch
