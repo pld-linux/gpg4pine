@@ -14,7 +14,7 @@ Requires:	fileutils
 Requires:	textutils
 Requires:	sh-utils
 Requires:	grep
-Requires:	gnugp
+Requires:	gnupg
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildArch:	noarch
 
