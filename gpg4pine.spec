@@ -44,15 +44,19 @@ cat README.orig|sed '/^CONFIGURATION$/p'|sed \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir}\
-,%{_datadir}/gpg4pine,%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},%{_datadir}/gpg4pine,%{_mandir}/man1}
+
 %{__make} install BIN_DIR=$RPM_BUILD_ROOT%{_bindir} \
-MAN_DIR=$RPM_BUILD_ROOT%{_mandir}
-cp gpg4pinerc $RPM_BUILD_ROOT%{_sysconfdir}/gpg4pine.defaults
+	MAN_DIR=$RPM_BUILD_ROOT%{_mandir}
+	
+install gpg4pinerc $RPM_BUILD_ROOT%{_sysconfdir}/gpg4pine.defaults
 cp -a language $RPM_BUILD_ROOT%{_datadir}/gpg4pine/language
 touch $RPM_BUILD_ROOT%{_sysconfdir}/gpg4pine.override
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/*/* README AUTHORS \
-	NEWS LICENSE aliases pgp-patches/*
+
+gzip -9nf README AUTHORS NEWS LICENSE aliases pgp-patches/*
+
+%clean
+rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(644,root,root,755)
@@ -62,6 +66,3 @@ gzip -9nf $RPM_BUILD_ROOT%{_mandir}/*/* README AUTHORS \
 %doc *.gz
 %doc pgp-patches
 %{_mandir}/*/*
-
-%clean
-rm -rf ${RPM_BUILD_ROOT}
