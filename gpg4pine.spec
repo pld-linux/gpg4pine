@@ -14,7 +14,7 @@ Requires:	fileutils
 Requires:	textutils
 Requires:	sh-utils
 Requires:	grep
-Requires:	pgp
+Requires:	gnugp
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildArch:	noarch
 
@@ -45,7 +45,8 @@ cat README.orig|sed '/^CONFIGURATION$/p'|sed \
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_bindir},%{_datadir}/gpg4pine,%{_mandir}/man1}
 
-%{__make} install BIN_DIR=$RPM_BUILD_ROOT%{_bindir} \
+%{__make} install \
+	BIN_DIR=$RPM_BUILD_ROOT%{_bindir} \
 	MAN_DIR=$RPM_BUILD_ROOT%{_mandir}
 
 install gpg4pinerc $RPM_BUILD_ROOT%{_sysconfdir}/gpg4pine.defaults
@@ -57,9 +58,9 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(644,root,root,755)
+%doc README AUTHORS NEWS LICENSE aliases
+%doc pgp-patches
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/gpg4pine
 %config %{_sysconfdir}/*
-%doc README AUTHORS NEWS LICENSE aliases
-%doc pgp-patches
 %{_mandir}/*/*
