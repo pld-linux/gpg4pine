@@ -1,0 +1,109 @@
+diff -Nur gpg4pine-3.6.orig/README gpg4pine-3.6/README
+--- gpg4pine-3.6.orig/README	Sun Apr  2 18:07:27 2000
++++ gpg4pine-3.6/README	Sun Apr  2 18:11:50 2000
+@@ -34,30 +34,25 @@
+ 
+ CONFIGURATION
+ -------------
+-1. Edit the 'gpg4pinerc' (probably GPG4PINE_MYADDRESS and some GPG4PINE_BIN_*)
+-
+-2a. Create the directory '.gpg4pine/' in home directories of users you want and
+-   set its mode to 700 (drwx------) (recommended), then copy files 'gpg4pinerc'
+-   and 'aliases' to '~/.gpg4pine' directories, create directories 'tmp/' and
+-   'spool/' inside and finally copy the whole 'language/' directory if you want
+-   full internationalization :)
++1. Create the '.gpg4pine' directory in your home directory and set its
++   mode to 700 (drwx------) (recommended), then copy the
++   /etc/gpg4pine.defaults file there, create directories 'tmp/' and
++   'spool/' inside
+--OR-
+-2b. If you have source package you can check the 'Makefile' and type:
+ 
+-make user-install
++2. Edit the 'gpg4pinerc' (probably GPG4PINE_MYADDRESS)
+ 
+ 3. If you want, set the default settings putting them to
+-   /usr/local/etc/gpg4pine.defaults or override any of the user settings in
+-   /usr/local/etc/gpg4pine.override
++   /etc/gpg4pine.defaults or override any of the user settings in
++   /etc/gpg4pine.override (if you're the admin, of course:)
+ 
+ 4. Configure PINE by
+-a) adding to 'display-filters' something like:
++a) adding to 'display-filters' the following:
+ 
+-_LEADING("-----BEGIN PGP")_ /usr/local/bin/gpg4pine -d -i _TMPFILE_ -p _DATAFILE_
++_LEADING("-----BEGIN PGP")_ /usr/bin/gpg4pine -d -i _TMPFILE_ -p _DATAFILE_
+ 
+-b) adding to 'sending-filters' something like:
++b) adding to 'sending-filters' the following:
+ 
+-/usr/local/bin/gpg4pine -e -i _TMPFILE_ -p _DATAFILE_ -r _RECIPIENTS_ _INCLUDEALLHDRS_
++/usr/bin/gpg4pine -e -i _TMPFILE_ -p _DATAFILE_ -r _RECIPIENTS_ _INCLUDEALLHDRS_
+ 
+ c) checking 'compose-send-offers-first-filter' if you want to always send
+    using GPG4PINE
+@@ -71,13 +66,12 @@
+ 
+ OPTIONS
+ -------
+-Check manual pages located in "docs/"
++Check manual pages located in "/usr/man/man1"
+ 
+ NOTES
+ -----
+-Security points:
++Security point:
+ 
+-* In BIN variables you should type the full path
+ * Attachments are NOT ENCRYPTED (and this is PINE's developers' fault, not
+   mine)
+ 
+diff -Nur gpg4pine-3.4.orig/gpg4pine gpg4pine-3.4/gpg4pine
+--- gpg4pine-3.4.orig/gpg4pine	Wed Feb  9 09:33:32 2000
++++ gpg4pine-3.4/gpg4pine	Mon Feb 21 21:46:03 2000
+@@ -3,7 +3,7 @@
+ # GPG4PINE main program
+ #
+ 
+-GLOBALRC="/usr/local/etc" # Change it to directory containing gpg4pine.defaults
++GLOBALRC="/etc" # Change it to directory containing gpg4pine.defaults
+ 			  # and/or gpg4pine.override
+
+ # Some command definitions. When one does not work for you try the another :)
+diff -u gpg4pine-4.2.orig/gpg4pinerc gpg4pine-4.2/gpg4pinerc
+--- gpg4pine-4.2.orig/gpg4pinerc	Sat Apr 22 16:35:28 2000
++++ gpg4pine-4.2/gpg4pinerc	Sun May 21 15:24:32 2000
+@@ -19,16 +19,16 @@
+ 					    # signing, no spacas here!
+ 					    # Empty for auto-detection
+ 
+-GPG4PINE_BIN_6=/usr/local/bin/pgp	    # Where is your PGP 6.5.1
++GPG4PINE_BIN_6=/usr/bin/pgp		    # Where is your PGP 6.5.1
+ 					    # executable located
+-GPG4PINE_BIN_G=/usr/local/bin/gpg           # Or GNUPG 1.0
++GPG4PINE_BIN_G=/usr/bin/gpg	           # Or GNUPG 1.0
+                                             # executable (see THANKS)
+-GPG4PINE_BIN_5_E=/usr/local/bin/pgpe	    # Or PGP 5.0 executables
+-GPG4PINE_BIN_5_S=/usr/local/bin/pgps
+-GPG4PINE_BIN_5_V=/usr/local/bin/pgpv
+-GPG4PINE_BIN_5_K=/usr/local/bin/pgpk
++GPG4PINE_BIN_5_E=/usr/bin/pgpe		    # Or PGP 5.0 executables
++GPG4PINE_BIN_5_S=/usr/bin/pgps
++GPG4PINE_BIN_5_V=/usr/bin/pgpv
++GPG4PINE_BIN_5_K=/usr/bin/pgpk
+ 
+-GPG4PINE_BIN_2=/usr/local/bin/pgp	    # Or the great PGP 2.6.3
++GPG4PINE_BIN_2=/usr/bin/pgp		    # Or the great PGP 2.6.3
+ 					    # executable :)
+ 
+ GPG4PINE_BIN_VERSION=G			    # What PGP binaries search
+@@ -39,7 +39,7 @@
+ GPG4PINE_TMP=$HOME/.gpg4pine/tmp	    # Directory for temporary
+ 					    # files
+ GPG4PINE_SPOOL=$HOME/.gpg4pine/spool	    # Directory for decoded files
+-GPG4PINE_LANGUAGE=$HOME/.gpg4pine/language  # Directory for language files
++GPG4PINE_LANGUAGE=/usr/share/gpg4pine/language # Directory for language files
+ 
+ GPG4PINE_NOWAIT_ENCRYPT=Y		    # Don't wait after
+ GPG4PINE_NOWAIT_DECRYPT=N		    # encrypt/decrypt
