@@ -39,7 +39,7 @@ tar xf %{name}-%{version}.tar -C ..
 mv -f README README.orig
 cat README.orig|sed '/^CONFIGURATION$/p'|sed \
 	'/^INSTALLATION$/,/^CONFIGURATION$/d'>README
-%patch -p1
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
