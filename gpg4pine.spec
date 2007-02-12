@@ -1,6 +1,6 @@
 Summary:	A pine--gpg/pgp interface
-Summary(de):	Ein Interface zwischen pine und gpg/pgp
-Summary(pl):	Interfejs pine--gpg/pgp
+Summary(de.UTF-8):   Ein Interface zwischen pine und gpg/pgp
+Summary(pl.UTF-8):   Interfejs pine--gpg/pgp
 Name:		gpg4pine
 Version:	4.2
 Release:	1
@@ -23,15 +23,15 @@ gpg4pine is a program that lets you send messages signed or encrypted
 via an OpenPGP backend (GnuPG or PGP) with your favorite mailer (that
 is, pine).
 
-%description -l de
-gpg4pine ist ein Frontend für OpenPGP-Programme (GnuPG oder PGP), der
-erlaubt untergeschriebene oder verschlüsselte Nachrichte mit deinem
+%description -l de.UTF-8
+gpg4pine ist ein Frontend fÃ¼r OpenPGP-Programme (GnuPG oder PGP), der
+erlaubt untergeschriebene oder verschlÃ¼sselte Nachrichte mit deinem
 Lieblingsmailer (pine) zu schicken.
 
-%description -l pl
-gpg4pine jest programem pozwalaj±cym na wysy³anie wiadomo¶ci
+%description -l pl.UTF-8
+gpg4pine jest programem pozwalajÄ…cym na wysyÅ‚anie wiadomoÅ›ci
 podpisanych lub zaszyfrowanych przez program OpenPGP (GnuPG lub PGP)
-przy u¿yciu twojego ulubionego programu pocztowego (czytaj: pine'a).
+przy uÅ¼yciu twojego ulubionego programu pocztowego (czytaj: pine'a).
 
 %prep
 %setup -q
