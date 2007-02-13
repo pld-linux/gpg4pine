@@ -1,6 +1,6 @@
 Summary:	A pine--gpg/pgp interface
-Summary(de.UTF-8):   Ein Interface zwischen pine und gpg/pgp
-Summary(pl.UTF-8):   Interfejs pine--gpg/pgp
+Summary(de.UTF-8):	Ein Interface zwischen pine und gpg/pgp
+Summary(pl.UTF-8):	Interfejs pine--gpg/pgp
 Name:		gpg4pine
 Version:	4.2
 Release:	1
