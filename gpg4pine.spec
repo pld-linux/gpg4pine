@@ -54,7 +54,7 @@ cp -a language $RPM_BUILD_ROOT%{_datadir}/gpg4pine/language
 touch $RPM_BUILD_ROOT%{_sysconfdir}/gpg4pine.override
 
 %clean
-rm -rf ${RPM_BUILD_ROOT}
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
